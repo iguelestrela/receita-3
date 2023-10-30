@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <img src="https://www.pngitem.com/pimgs/m/232-2324720_ratatouille-png-transparent-ratatouille-clipart-png-download.png" style="wight: 30px; height:30px; filter: invert(90%);">
+      La Receita
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1 class="nome-meio">ᘛᘚ {{receitas[index].nome}} ᘛᘚ</h1>
+  <div *ngIf="receitas[index].image;" class="imagem-borda">
+    <img src="{{ receitas[index].image }}" alt="">
+  </div>
+
+  <h2>⇾Ingredientes:</h2>
+  <div *ngFor="let ingred of receitas[index].ingrediente; let i = index">
+    <p>☛{{i+1}}.{{ingred}}</p>
+  </div>
+  <hr>
+  <h2>⇾Modo de preparo:</h2>
+  <p>{{receitas[index].preparo}}</p>
+  <div *ngIf="receitas[index].historia;" >
+    <hr>
+    <h2>⇾✎Historia da receita:</h2>
+    <p>{{receitas[index].historia}}</p>
+  </div>
+  <hr>
+  <div *ngIf="receitas[index].criador;">
+    <h3>⇾⚉Criador:</h3>
+    <p>{{receitas[index].criador}}</p>
+  </div>
+</ion-content>
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button>
+    <ion-icon name="chevron-up-circle"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+
+    <ion-fab-button href="/editar/{{index}}">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+
+  <ion-fab-button (click)="excluir()">
+    <ion-icon name="trash"></ion-icon>
+  </ion-fab-button>
+
+    <ion-fab-button href="/home">
+      <ion-icon name="home"></ion-icon>
+    </ion-fab-button>
+    
+    <ion-fab-button href="/adicionar">
+      <ion-icon name="add-outline"></ion-icon> 
+    </ion-fab-button>
+    
+  </ion-fab-list>
+</ion-fab>

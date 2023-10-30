@@ -1,0 +1,15 @@
+ion-title img[theme="light"] {
+    width: 30px;
+    height:30px;
+    filter: invert(00%);
+    
+
+}
+
+ion-title img[theme="dark"] {
+    width: 30px;
+    height:30px;
+    filter: invert(90%);
+    
+
+}
